@@ -1,0 +1,104 @@
+
+.item-list-cart{
+  padding: 2rem;
+}
+.row.cart-item{
+  background-color: #e5e9ea;
+  padding: 1rem 0;
+  border-radius: .2rem;
+  align-items: center;
+  justify-content: space-around;
+}
+.cart-prod-img{
+  order: 0;
+}
+.prod-name{
+  order: 1;
+}
+.cart-delete{
+  order: 2;
+  font-size: 1.5rem;
+}
+.talle{
+  order:3;
+  padding: 0;
+}
+.cant{
+  order: 4;
+  padding: 0;
+}
+.prod-price{
+  order: 6;
+  text-align: right;
+}
+.total-price{
+  order:7;
+  margin-top: 4rem;
+  width: 11rem;
+  margin-left: auto;
+}
+
+/* ASIDE */
+
+.buying-options{
+  padding: 2rem 1rem;
+  background-image: url(../img/bg-carrito.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-form{
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.credit-card{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.credit-card i{
+  font-size: 3rem;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .prod-name{
+    text-align: left;
+  }
+  .cart-delete{
+    order: 7;
+    align-self: flex-start;
+  }
+  .prod-price{
+    order: 6;
+    align-self: flex-end;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .cart-delete{
+    order: 10;
+    align-self: flex-start;
+  }
+  .prod-price{
+    order: 6;
+    align-self: flex-end;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+
+
+
+
