@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "name": "Sauron",
         "price": "1234",
         "photos":[
@@ -10,6 +11,7 @@
         "sells": 25
     },
     {
+        "id": 2,
         "name": "Toprat",
         "price": "1234",
         "photos": [
@@ -20,6 +22,7 @@
         "sells": 9
     },
     {
+        "id": 3,
         "name": "Criminat",
         "price": "1234",
         "photos": [
@@ -30,6 +33,7 @@
         "sells": 38
     },
     {
+        "id": 4,
         "name": "Curett",
         "price": "1234",
         "photos": [
@@ -40,6 +44,7 @@
         "sells": 43
     },
     {
+        "id": 5,
         "name": "Millerd",
         "price": "1234",
         "photos": [
@@ -50,6 +55,7 @@
         "sells": 14
     },
     {
+        "id": 6,
         "name": "Marlyne",
         "price": "1234",
         "photos": [
