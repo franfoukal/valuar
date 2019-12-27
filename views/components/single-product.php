@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col-5 col-md-12">
                 <div class="list-item text-center mb-3">
-                    <a href="product.html">
+                    <a href="product">
                         <img class='list-img rounded-lg' src=<?php echo './assets/img/products/' . $product["photos"][0]?> alt="">
                     </a>
                 </div>
             </div>
             <div class="col-7 col-md-12">
                 <div class="list-item text-left">
-                    <a href="product.html">
+                    <a href="product">
                         <h4 class='mb-3 noche'>
                             <?= $product["name"] ?>
                         </h4>

@@ -6,7 +6,7 @@
                         <h5 class="footer-title">Valuar</h5>
                         <ul class="clearlist footer-list">
                             <li><a href="#">Categorias</a></li>
-                            <li><a href="#">Productos</a></li>
+                            <li><a href="product-list">Productos</a></li>
                             <li><a href="#">Temporadas</a></li>
                             <li><a href="#">Promociones</a></li>
                         </ul>
