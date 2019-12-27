@@ -1,6 +1,5 @@
 <?php
-$request = $_SERVER['REQUEST_URI'];
-
+$request = $_SERVER['REQUEST_URI'];        
 $path = parse_url($request, PHP_URL_PATH);
 $segments = explode('/', $path); //Separa la URL donde van los "/" y los guarda en un array. El 0 es "valuar"
 
@@ -19,6 +18,7 @@ function isHome($request){
 */
 function router($request)
 {
+    
     switch ($request) {
         case '/valuar/':
             require __DIR__ . '/views/home.php';
@@ -37,6 +37,12 @@ function router($request)
             break;
         case '/valuar/cart':
             require __DIR__ . '/views/shopping-cart.php';
+            break;
+        case '/valuar/product':
+            require './views/product.php';
+            break;
+        case '/valuar/product-list':
+            require './views/product-list.php';
             break;
         default:
             http_response_code(404);
