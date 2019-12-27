@@ -49,6 +49,15 @@ function router($request)
         case '/valuar/contact':
             require __DIR__ . '/views/contact.php';
             break;
+        case '/valuar/login':
+            require __DIR__ . '/views/login.php';
+            break;
+        case '/valuar/signup':
+            require __DIR__ . '/views/signup.php';
+            break;
+        case '/valuar/FAQ':
+            require __DIR__ . '/views/FAQ.php';
+            break;
         default:
             http_response_code(404);
             require __DIR__ . '/views/404.php';
