@@ -149,18 +149,18 @@
                       </div>
                       <div class="col-8">
                         <div class="row mx-1">
-                          <div class="col-4">
-                            <button class='form-control waves-effect bg-crema cantidad'>
+                          <div class="col-4 text-center">
+                            <div class='form-control waves-effect bg-crema cantidad' id='minus' onclick='resta()'>
                               <i class="fas fa-minus"></i>
-                            </button>
+                            </div>
                           </div>
                           <div class="col-4">
                             <input class='cantidad disabled text-center form-control' min='1' value='1' type="number" name="cantidad" id="cantidad">
                           </div>
-                          <div class="col-4">
-                            <button class='form-control waves-effect bg-crema text-center cantidad'>
+                          <div class="col-4 text-center">
+                            <div class='form-control waves-effect bg-crema text-center cantidad' id='plus' onclick="suma()">
                               <i class="fas fa-plus"></i>
-                            </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -194,3 +194,4 @@
       </div>
     </div>
   </div>
+  <script src='./assets/js/product.js'></script>
