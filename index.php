@@ -30,7 +30,7 @@
         <?php require __DIR__ . '/views/header.php' //se incluye header
         ?>
 
-        <?php router($request); ?> 
+        <?php router($path); ?> 
 
         <?php require __DIR__ . '/views/footer.php' //se incluye header
         ?>

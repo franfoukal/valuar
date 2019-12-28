@@ -128,7 +128,7 @@
   height: 100%;
 }
 .bg-image-collar{
-  background: url("../assets/img/ctg/collar-bg-1.jpg") no-repeat center;
+  background: url("../img/ctg/collar-bg-1.jpg") no-repeat center;
   background-size: cover;
 }
 

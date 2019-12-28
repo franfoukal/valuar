@@ -2,7 +2,10 @@
     $file = "assets/data-source/products.json";
     $conn = file_get_contents($file);
     $products = json_decode($conn, true);
+    if ($_GET) {
+      // code...
     $item = $_GET["item"];
+  }
 ?>
 <!--Main-->
     <div class="container">

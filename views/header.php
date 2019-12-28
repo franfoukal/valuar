@@ -15,11 +15,11 @@
                         <i class="fas fa-ring"></i> Productos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light" href="FAQ.html">
+                    <a class="nav-link waves-effect waves-light" href="FAQ">
                         <i class="fas fa-cogs"></i> F.A.Q.</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light" href="contact.html">
+                    <a class="nav-link waves-effect waves-light" href="contact">
                         <i class="fas fa-envelope"></i> Contacto
                     </a>
                 </li>
@@ -27,7 +27,7 @@
                     <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user"></i> Perfil </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item waves-effect waves-light" href="login.html">Log In</a>
+                        <a class="dropdown-item waves-effect waves-light" href="login">Log In</a>
                         <a class="dropdown-item waves-effect waves-light" href="#">Mi cuenta</a>
                         <a class="dropdown-item waves-effect waves-light" href="#">Log out</a>
                     </div>
@@ -53,5 +53,5 @@
             ';
         }
     ?>
-   
+
 </header>

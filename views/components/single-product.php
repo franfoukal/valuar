@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-5 col-md-12">
                 <div class="list-item text-center mb-3">
-                    <a href="product">
+                    <a href="<?php echo 'product?id=' . $product["id"]?>">
                         <img class='list-img rounded-lg' src=<?php echo './assets/img/products/' . $product["photos"][0]?> alt="">
                     </a>
                 </div>
