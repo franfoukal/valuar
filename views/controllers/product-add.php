@@ -17,7 +17,7 @@ if($_POST){
             // producto, luego, se añade al json del carrito.
 
             if ($valor["id"] == $_POST["product-id"]){
-                
+                $valor["id"] = $_POST["product-id"]; //se agrega id, es importante que tada info tenga, para migrar a DB
                 $valor["size"] = 13; // Valores por defecto
                 $valor["units"] = 1; // 
 
@@ -28,7 +28,7 @@ if($_POST){
             }
 
             // Ojo, los productos del listado tienen id
-            // los del carrito no.
+            // los del carrito no. - ver
 
         }
     }

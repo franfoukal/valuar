@@ -59,10 +59,13 @@ function router($request)
             require __DIR__ . '/views/FAQ.php';
             break;
         case '/valuar/product-add':
-            require __DIR__ . '/views/components/product-add.php';
+            require __DIR__ . '/views/controllers/product-add.php';
             break;
         case '/valuar/product-buy':
-            require __DIR__ . '/views/components/product-buy.php';
+            require __DIR__ . '/views/controllers/product-buy.php';
+            break;
+        case '/valuar/delete-cart-product':
+            require __DIR__ . '/views/controllers/delete-cart-product.php';
             break;
         default:
             http_response_code(404);
