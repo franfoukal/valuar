@@ -21,7 +21,10 @@
                 </div>
             </div>
             <div class="col-12">
-                <button class='btn bg-piel w-100 mx-auto'>Agregar al carrito</button>
+                <form action="product-add.php" method="post">
+                    <input name="product-id" type="hidden" value="<?=$product['id']?>">
+                    <button name="agregar" type="submit" class='btn bg-piel w-100 mx-auto'>Agregar al carrito</button>
+                </form>
             </div>
             <div class="col-12">
                 <button class='btn bg-verde w-100 mx-auto'>Comprar ahora</button>
