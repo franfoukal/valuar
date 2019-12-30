@@ -58,8 +58,11 @@ function router($request)
         case '/valuar/FAQ':
             require __DIR__ . '/views/FAQ.php';
             break;
-        case '/valuar/product-add.php':
+        case '/valuar/product-add':
             require __DIR__ . '/views/components/product-add.php';
+            break;
+        case '/valuar/product-buy':
+            require __DIR__ . '/views/components/product-buy.php';
             break;
         default:
             http_response_code(404);

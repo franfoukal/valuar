@@ -21,13 +21,15 @@
                 </div>
             </div>
             <div class="col-12">
-                <form action="product-add.php" method="post">
+                <form action="product-add" method="post">
                     <input name="product-id" type="hidden" value="<?=$product['id']?>">
                     <button name="agregar" type="submit" class='btn bg-piel w-100 mx-auto'>Agregar al carrito</button>
                 </form>
             </div>
             <div class="col-12">
-                <button class='btn bg-verde w-100 mx-auto'>Comprar ahora</button>
+                <a href="<?php echo 'product?id=' . $product["id"]?>">
+                    <button class=' noche btn bg-verde w-100 mx-auto'>Comprar ahora</button>
+                </a>
             </div>
         </div>
     </div>

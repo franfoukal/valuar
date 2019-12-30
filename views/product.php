@@ -9,7 +9,6 @@
         $selectedProduct = $p;
       }
     }
-
 ?>
 <div class="container">
     <div class="card p-0 my-3">
@@ -87,16 +86,17 @@
             </div>
             <div class="row">
               <div class="col-12">
-                <form action="">
+                <form id="buy-form" action="" method="POST">
+                <input name="product-id" type="hidden" value="<?=$selectedProduct['id']?>">
                   <div class="form-group">
                     <div class="row">
                       <div class="col-4 d-flex flex-direction-column justify-content-center">
-                        <label class='my-auto' for="talle">
+                        <label class='my-auto' for="size">
                           <span>Talle: </span>
                         </label>
                       </div>
                       <div class="col-8 text-center">
-                      <select class='custom-select talle-select' name="talle" id="talle">
+                      <select class='custom-select talle-select' name="size" id="size">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -171,10 +171,10 @@
             </div>
             <div class="row">
               <div class="col-12 col-md-6 my-1">
-                <button class='btn btn-block bg-verde'>Comprar ahora</button>
+                <button form="buy-form" formaction="product-buy" class='btn btn-block bg-verde'>Comprar ahora</button>
               </div>
               <div class="col-12 col-md-6 my-1">
-                <button class='btn btn-block bg-piel'>añadir a carrito</button>
+                <button form="buy-form" formaction="product-add" class='btn btn-block bg-piel'>añadir a carrito</button>    
               </div>
             </div>
           </div>
