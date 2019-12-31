@@ -11,13 +11,24 @@ if($_POST){
 
 
         foreach($productsDecode as $key => $valor){
-            
+
+            /*
+            *   Cuando se agrega un producto que ya existe, 
+            *   o suma una unidad, o no hace nada (ver linea comentada) 
+            */
+
+           if ($valor["id"] == $_POST["product-id"] && array_key_exists($key, $carritoDecode)) {
+                // $carritoDecode[$key]["units"]++; //comentar esta linea en caso de no querer que haga nada si ya existe
+                $carritoEncode = json_encode($carritoDecode);
+                file_put_contents($carrito, $carritoEncode);
+           }
+
             // Pasamos el id del producto via post
             // y hacemos que haga match con el correspondiente
             // producto, luego, se añade al json del carrito.
 
-            if ($valor["id"] == $_POST["product-id"]){
-                
+            elseif ($valor["id"] == $_POST["product-id"]){
+                $valor["id"] = $_POST["product-id"]; //se agrega id, es importante que tada info tenga, para migrar a DB
                 $valor["size"] = 13; // Valores por defecto
                 $valor["units"] = 1; // 
 
@@ -28,7 +39,7 @@ if($_POST){
             }
 
             // Ojo, los productos del listado tienen id
-            // los del carrito no.
+            // los del carrito no. - ver
 
         }
     }

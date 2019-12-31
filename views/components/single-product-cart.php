@@ -6,7 +6,7 @@
         </div>
 
         <h4 class="prod-name col-5 col-md-2 col-lg-3"><?= $product["name"] ?></h4>
-        <a href="#" class="cart-delete rojo col-2 col-md-1 col-lg-1"><i class="fas fa-times"></i></a>
+        <a href="delete-cart-product?id=<?=$product["id"]?>" class="cart-delete rojo col-2 col-md-1 col-lg-1"><i class="fas fa-times"></i></a>
 
         <div class="md-form form-sm talle col-4 col-md-1 col-lg-1">
             <input type="number" id="form2" class="form-control form-control-sm" value="<?= $product["size"] ?>">
