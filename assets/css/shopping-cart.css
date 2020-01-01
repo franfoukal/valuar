@@ -42,28 +42,59 @@
 
 .summary-section{
   padding: 2rem 1rem;
-  /* background-image: url(../img/bg-carrito.png);
-  background-repeat: no-repeat;
-  background-size: cover; */
   min-height: 50vh;
-  text-align: center;
-
 }
 .summary{
-  /* background-color: #fff; */
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ align-content: space-between;
+ justify-content: space-around;
+ position: relative;
+}
+.summary-title{
+  margin-bottom: 2rem;
+}
+.summary-form{
+  align-self: stretch;
+  padding: 1rem 2rem;
+}
+.sub-form{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+.cvv{
+  margin-left: auto;
+}
+.sub-form>*{
+  padding: 0;;
+}
+.summary-btn{
+  align-self: stretch;
+}
+
+/* TARJETA DE CREDITO */
+
+.credit-card{
+  width: 85%;
+  height: 25vh;
+  border-radius: 1rem; 
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
-  height: 100%;
+  justify-content: space-around;
+  padding: 2rem;
+}
+.cc-dots{
+  font-size: 0.5rem;
+  margin-left: 0.4rem;
+}
+.cc-dots:not(:first-child){
+  margin-left: 0.4rem;
 }
 
-.summary .credit-card{
-  background-color: #90929a;
-  border-radius: 1rem;
-  align-self: center;
-  height: 25vh;
-}
+
 
 
 /* Small devices (landscape phones, 576px and up) */
@@ -84,11 +115,20 @@
     order: 6;
     align-self: flex-end;
   }
+  .credit-card{
+    position: relative;
+    right: 3rem;
+    width: 100%;
+  }
+  .cc-dots{
+    font-size: 0.4rem;
+    margin-left: 0.4rem;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    .cart-delete{
+  .cart-delete{
     order: 10;
     align-self: flex-start;
   }
@@ -96,6 +136,17 @@
     order: 6;
     align-self: flex-end;
   }
+  .credit-card{
+    position: relative;
+    right: 7rem;
+    width: 75%;
+    height: 30vh;;
+  }
+  .cc-dots{
+    font-size: 0.7rem;
+    margin-left: 0.4rem;
+  }
+
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
