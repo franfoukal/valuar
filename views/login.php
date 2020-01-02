@@ -1,34 +1,81 @@
 <?php
+
+  // Error counter.
+  $errors=[];
+
+  // User data gather.
+  $user=[
+    'email'=>!empty($_POST['email']) ? $_POST['email'] : '',
+    'password'=>!empty($_POST['password']) ? $_POST['password'] : ''
+  ];
+
   if ($_POST) {
 
+    // PASSWORD HASHING
+    $user['password']=password_hash($user['password'],PASSWORD_DEFAULT);
+    // USERS GET
+    $users=json_decode(file_get_contents("./assets/data-source/users.json"), true);
+
+    // Validations
+    if (empty($_POST['email'])) {
+      $errors[]= "El email esta vacio.";
+    }
+    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+      $errors[]="El email no tiene el formato correcto.";
+      $user['email']='';
+    }
+    if (empty($_POST['password'])) {
+      $errors[]='La contrasena esta vacia.';
+    }
+
+    // CHECK USER EXISTANCE
+    foreach ($users as $key => $value) {
+      if ($_POST["email"] == $value["email"]) {
+        if (password_verify($_POST['password'],$value['password']) && empty($errors)) {
+          session_start();
+          $_SESSION=$value;
+          header('Location: welcome');
+          exit();
+        }
+      }
+    }
+    $errors[] = "El email no está registrado o la contrasena es incorrecta.";
+    $user['email']='';
   }
  ?>
+
+ <?php foreach ($errors as $error): ?>
+   <!-- USER ALERTS -->
+   <div class="alert alert-danger mb-2 text-center" role="alert" style="width:50%;margin:auto">
+     <?php echo $error ?>
+   </div>
+ <?php endforeach; ?>
 
 <div class="jumbotron bg-image-collar z-depth-5" style="margin: 5vh 10vw">
    <div class="row">
      <!-- Default form login -->
-       <form class="text-center bg-white border border-light p-5 mb-4 col-xl-6 offset-xl-3 col-lg-12 justify-content-center z-depth-1-half" action="#!">
+       <form class="text-center bg-white border border-light p-5 mb-4 col-xl-6 offset-xl-3 col-lg-12 justify-content-center z-depth-1-half" method="POST">
 
            <p class="h4 mb-4">Log In</p>
 
            <!-- Email -->
            <div class="md-form">
-             <input type="email" id="materialLoginFormEmail" class="form-control">
-             <label for="materialLoginFormEmail">E-mail</label>
+             <input type="email" id="email" class="form-control" name="email" value="<?=$user['email']?>">
+             <label for="email">E-mail</label>
            </div>
 
            <!-- Password -->
            <div class="md-form">
-             <input type="password" id="materialLoginFormPassword" class="form-control">
-             <label for="materialLoginFormPassword">Contraseña</label>
+             <input type="password" id="password" class="form-control" name='password'>
+             <label for="password">Contraseña</label>
            </div>
 
            <div class="d-flex justify-content-around">
                <div>
                    <!-- Remember me -->
                    <div class="custom-control custom-checkbox">
-                       <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-                       <label class="custom-control-label" for="defaultLoginFormRemember">Mantenerme conectado</label>
+                       <input type="checkbox" class="custom-control-input" id="rememberMe">
+                       <label class="custom-control-label" for="rememberMe">Mantenerme conectado</label>
                    </div>
                </div>
            </div>
@@ -38,7 +85,7 @@
 
            <p>
              <!-- Forgot password -->
-             <a href="">¿Olvidaste tu contaseña?</a>
+             <a href="forgottenPassword">¿Olvidaste tu contaseña?</a>
            </p>
            <!-- Register -->
            <p>¿No sos miembro?

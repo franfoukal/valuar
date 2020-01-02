@@ -28,7 +28,7 @@
       $errors[]="El apellido esta vacio.";
     }
     if (empty($_POST['email'])) {
-      $errors[]= "El email esta vacio. <br>";
+      $errors[]= "El email esta vacio.";
     }
     if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
       $errors[]="El email no tiene el formato correcto.";
@@ -41,28 +41,18 @@
     }
     if (strlen($_POST['password'])<8) {
       $errors[]= "La contraseña tiene que tener como minimo 8 caracteres.";
-      $user['password']='';
-      $passwordConfirm='';
     }
     if (!preg_match('/[a-zA-Z]/', $_POST['password'])) {
       $errors[]="La contrasena no contiene ninguna letra.";
-      $user['password']='';
-      $passwordConfirm='';
     }
     if (!preg_match('/\d/', $_POST['password'])) {
       $errors[]="La contrasena no contiene ningun digito.";
-      $user['password']='';
-      $passwordConfirm='';
     }
     if (!preg_match('/[^a-zA-Z\d]/', $_POST['password'])) {
       $errors[]="La contrasena no contiene ningun caracter especial.";
-      $user['password']='';
-      $passwordConfirm='';
     }
     if ($_POST['password']!=$_POST['passwordConfirm']) {
       $errors[]= "Las contraseñas no son iguales.";
-      $user['password']='';
-      $passwordConfirm='';
     }
 
     // USER CREATION & SUCCESS
@@ -117,12 +107,12 @@
 
          <!-- Password -->
          <div class="md-form">
-             <input type="password" id="password" class="form-control" aria-describedby="passwordHelpBlock" name="password" value="<?=$user["password"]?>">
+             <input type="password" id="password" class="form-control" aria-describedby="passwordHelpBlock" name="password">
              <label for="password">Contraseña</label>
 
          </div>
          <div class="md-form">
-             <input type="password" id="passwordConfirm" class="form-control" aria-describedby="passwordHelpBlock" name="passwordConfirm" value="<?=$passwordConfirm?>">
+             <input type="password" id="passwordConfirm" class="form-control" aria-describedby="passwordHelpBlock" name="passwordConfirm">
              <label for="passwordConfirm">Confirmar contraseña</label>
              <small id="passwordHelpBlock" class="form-text text-muted mb-4">
                  Mínimo 8 caracteres, 1 número y 1 caracter especial.
