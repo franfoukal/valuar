@@ -12,6 +12,7 @@
     'phone'=>!empty($_POST['phone']) ? $_POST['phone'] : '',
   ];
   $passwordConfirm=!empty($_POST['passwordConfirm']) ? $_POST['passwordConfirm'] : '';
+  $rememberMe=!empty($_POST['rememberMe']) ? $_POST['rememberMe'] : 'off';
 
   if ($_POST) {
 
@@ -68,12 +69,15 @@
 
     }
 
-    // USER CREATION & SUCCESS
+    // USER CREATION & SUCCESS !!!!
     if (empty($errors)) {
       $users[]=$user;
       file_put_contents("./assets/data-source/users.json", json_encode($users));
       if ($_FILES) {
         move_uploaded_file($_FILES['profile']['tmp_name'], "./assets/img/profiles/".$user['email'].".".$ext);
+      }
+      if ($rememberMe=='on') {
+        setcookie('user', $_POST['email'], time()+60);
       }
       session_start();
       $_SESSION=$user;
@@ -162,7 +166,7 @@
 
          <!-- Remember me -->
          <div class="custom-control custom-checkbox mb-4">
-           <input type="checkbox" class="custom-control-input" id="rememberMe">
+           <input type="checkbox" class="custom-control-input" id="rememberMe" name="rememberMe">
            <label class="custom-control-label" for="rememberMe">Recordar usuario</label>
          </div>
 
