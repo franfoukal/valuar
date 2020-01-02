@@ -8,24 +8,26 @@
  <main class="main-content" id="cart">
      <div class="row p-0 m-0">
          <section class="item-list-cart col-12 col-md-8 col-lg-8">
-             <h1 class="cart-title">Tu carrito</h1>
-             <ul class="clearlist">
-                 <?php
-                    foreach ($cart as $i => $product) {
-                        require "components/single-product-cart.php";
-                    }
-                    ?>
-             </ul>
+             <div class="cont col-11">
+                 <h1 class="cart-title">Tu carrito</h1>
+                 <ul class="clearlist">
+                     <?php
+                        foreach ($cart as $i => $product) {
+                            require "components/single-product-cart.php";
+                        }
+                        ?>
+                 </ul>
 
-             <h3 class="total-price">Total:
-                 <?php
-                    $resultado = 0;
-                    foreach ($cart as $key => $product) {
-                        $resultado += $product["price"] * $product["units"];
-                    }
-                    echo "$" . $resultado;
-                    ?>
-             </h3>
+                 <h3 class="total-price">Total:
+                     <?php
+                        $resultado = 0;
+                        foreach ($cart as $key => $product) {
+                            $resultado += $product["price"] * $product["units"];
+                        }
+                        echo "$" . $resultado;
+                        ?>
+                 </h3>
+             </div>
          </section>
 
          <aside class="summary-section z-depth-1-half bg-crema col-12 col-md-4 col-lg-4">
@@ -132,7 +134,7 @@
              cardNumberSeparated: function() {
                  if (!this.numberEmpty) {
                      console.log(this.cardNumber.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3"));
-                     return this.cardNumber;//.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3");
+                     return this.cardNumber; //.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3");
 
                  } else {
                      return "";
