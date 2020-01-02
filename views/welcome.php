@@ -1,5 +1,7 @@
-<div class="">
-    Bienvenido <?=$_SESSION['name']?>;
-</div>
+<?php session_start(); ?>
 
-<?php print_r($_SESSION); ?>
+<div class="alert alert-success text-center my-5" role="alert" style="width:50%;margin:auto">
+  Bienvenido <?=$_SESSION['name']?>! <br>
+  Visita <a href="home">tu perfil</a> <br>
+  Dirigite a la <a href="home">pagina principal</a>.
+</div>

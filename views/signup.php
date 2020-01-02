@@ -64,6 +64,7 @@
       header('Location: welcome');
       exit();
     }
+
   }
  ?>
 
@@ -78,7 +79,7 @@
 <div class="jumbotron bg-image-collar z-depth-5" style="margin: 5vh 10vw">
    <div class="row">
      <!-- Sign Up form -->
-       <form class="text-center bg-white border border-light p-5 mb-4 col-xl-6 offset-xl-3 col-lg-12 justify-content-center z-depth-1-half" method="post">
+       <form class="text-center bg-white border border-light p-5 mb-4 col-xl-6 offset-xl-3 col-lg-12 justify-content-center z-depth-1-half" method="post" enctype="multipart/form-data">
 
            <p class="h4 mb-4">Registrate</p>
 
@@ -126,6 +127,12 @@
              <small id="phoneHelpBlock" class="form-text text-muted mb-4">
                  Opcional
              </small>
+         </div>
+
+         <!-- PROFILE IMG INPUT -->
+         <div class="md-form">
+           Imagen de perfil. <br>
+          <input type="file" name="profileImg" value="">
          </div>
 
          <!-- Sign up button -->
