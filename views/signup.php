@@ -55,16 +55,31 @@
       $errors[]= "Las contraseñas no son iguales.";
     }
 
+    // PROFILE IMG
+    if ($_FILES) {
+      if ($_FILES['profile']['error']!=0) {
+        $errors[]="Hubo un error al subir la imagen";
+      }else {
+        $ext=pathinfo($_FILES['profile']['name'],PATHINFO_EXTENSION);
+        if ($ext != 'png' && $ext != 'jpg' && $ext != 'jpeg') {
+          $errors[]="La imagen debe ser png, jpg o jpeg.";
+        }
+      }
+
+    }
+
     // USER CREATION & SUCCESS
     if (empty($errors)) {
       $users[]=$user;
       file_put_contents("./assets/data-source/users.json", json_encode($users));
+      if ($_FILES) {
+        move_uploaded_file($_FILES['profile']['tmp_name'], "./assets/img/profiles/".$user['email'].".".$ext);
+      }
       session_start();
       $_SESSION=$user;
       header('Location: welcome');
       exit();
     }
-
   }
  ?>
 
@@ -130,10 +145,17 @@
          </div>
 
          <!-- PROFILE IMG INPUT -->
-         <div class="md-form">
-           Imagen de perfil. <br>
-          <input type="file" name="profileImg" value="">
-         </div>
+         <div class="file-field">
+           <span>Subir foto de perfil</span>
+          <div class="d-flex justify-content-center">
+            <div class="btn bg-transparent btn-rounded float-left">
+              <input type="file" name="profile">
+            </div>
+          </div>
+          <small class="form-text text-muted mb-4">
+              Opcional
+          </small>
+        </div>
 
          <!-- Sign up button -->
          <button class="btn bg-verde btn-block my-4 text-white" type="submit" style="width:80%;margin:auto">Registrate</button>
