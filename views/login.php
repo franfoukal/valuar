@@ -1,5 +1,7 @@
 <?php
 
+  print_r($_COOKIE);
+
   // Error counter.
   $errors=[];
 
@@ -8,6 +10,11 @@
     'email'=>!empty($_POST['email']) ? $_POST['email'] : '',
     'password'=>!empty($_POST['password']) ? $_POST['password'] : ''
   ];
+  $rememberMe=!empty($_POST['rememberMe']) ? $_POST['rememberMe'] : 'off';
+
+  if ($_COOKIE) {
+    $user['email']=!empty($_COOKIE['user'])?$_COOKIE['user']:'';
+  }
 
   if ($_POST) {
 
@@ -32,6 +39,10 @@
     foreach ($users as $key => $value) {
       if ($_POST["email"] == $value["email"]) {
         if (password_verify($_POST['password'],$value['password']) && empty($errors)) {
+          // SUCCESS !!!!
+          if ($rememberMe=='on') {
+            setcookie('user', $_POST['email'], time()+60);
+          }
           session_start();
           $_SESSION=$value;
           header('Location: welcome');
@@ -74,8 +85,8 @@
                <div>
                    <!-- Remember me -->
                    <div class="custom-control custom-checkbox">
-                       <input type="checkbox" class="custom-control-input" id="rememberMe">
-                       <label class="custom-control-label" for="rememberMe">Mantenerme conectado</label>
+                       <input type="checkbox" class="custom-control-input" id="rememberMe" name="rememberMe">
+                       <label class="custom-control-label" for="rememberMe">Recordar usuario</label>
                    </div>
                </div>
            </div>
