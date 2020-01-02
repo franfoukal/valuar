@@ -67,6 +67,9 @@ function router($request)
         case '/valuar/delete-cart-product':
             require __DIR__ . '/views/controllers/delete-cart-product.php';
             break;
+        case '/valuar/welcome':
+            require __DIR__ . '/views/welcome.php';
+            break;
         default:
             http_response_code(404);
             require __DIR__ . '/views/404.php';
