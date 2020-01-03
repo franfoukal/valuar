@@ -58,6 +58,9 @@ function router($request)
         case '/valuar/FAQ':
             require __DIR__ . '/views/FAQ.php';
             break;
+        case '/valuar/profile':
+            require __DIR__ . '/views/profile.php';
+            break;
         case '/valuar/product-add':
             require __DIR__ . '/views/controllers/product-add.php';
             break;
@@ -66,6 +69,15 @@ function router($request)
             break;
         case '/valuar/delete-cart-product':
             require __DIR__ . '/views/controllers/delete-cart-product.php';
+            break;
+        case '/valuar/welcome':
+            require __DIR__ . '/views/welcome.php';
+            break;
+        case '/valuar/forgottenPassword':
+            require __DIR__ . '/views/forgottenPassword.php';
+            break;
+        case '/valuar/logout':
+            require __DIR__ . '/views/logout.php';
             break;
         default:
             http_response_code(404);

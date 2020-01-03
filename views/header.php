@@ -34,8 +34,8 @@
                         <i class="fas fa-user"></i> Perfil </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
                         <a class="dropdown-item waves-effect waves-light" href="login">Log In</a>
-                        <a class="dropdown-item waves-effect waves-light" href="#">Mi cuenta</a>
-                        <a class="dropdown-item waves-effect waves-light" href="#">Log out</a>
+                        <a class="dropdown-item waves-effect waves-light" href="profile">Mi cuenta</a>
+                        <a class="dropdown-item waves-effect waves-light" href="logout">Log out</a>
                     </div>
                 </li>
             </ul>
