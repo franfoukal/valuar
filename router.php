@@ -84,7 +84,6 @@ function router($request)
             require __DIR__ . '/views/404.php';
             break;
     }
-
     switch($segments[2]){
         case 'product':
 

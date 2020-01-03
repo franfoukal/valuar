@@ -1,6 +1,10 @@
 <?php
 
-  
+  if ($_SESSION) {
+    header('Location: welcome');
+    exit();
+  }
+
   // Error counter.
   $errors=[];
 
