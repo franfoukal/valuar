@@ -2,9 +2,8 @@
     $file = "assets/data-source/cart.json";
     $conn = file_get_contents($file);
     $cart = json_decode($conn, true);
-
-
     ?>
+
  <main class="main-content" id="cart">
      <div class="row p-0 m-0">
          <section class="item-list-cart col-12 col-md-8 col-lg-8">
@@ -36,8 +35,8 @@
                  <h5 class="summary-title">RESUMEN DE COMPRA</h5>
 
                  <div class="credit-card bg-noche crema">
-                     <h5 class="cc-title">Tarjeta</h5>
-                     <div class="cc-number" v-if="!numberEmpty">
+                     <h5 class="cc-title">Credit card</h5>
+                     <div class="cc-number" v-if="numberEmpty">
                          <?php
                             for ($i = 0; $i < 4; $i++) {
                                 echo '
@@ -54,9 +53,15 @@
                      <div class="cc-number" else>
                          {{cardNumberSeparated}}
                      </div>
-                     <div class="nombre">
+                     <div class="cc-name">
                          {{name}}
                      </div>
+                     <div class="cc-date">
+                         {{month}}/{{year}}
+                     </div>
+
+                    <i class="cc-logo fab fa-cc-visa"></i>
+                     
                  </div>
 
                  <div class="summary-form">
@@ -65,20 +70,20 @@
                          <label for="form1" class="">Nombre en tarjeta</label>
                      </div>
                      <div class="md-form">
-                         <input type="number" id="form2" class="form-control" v-model="cardNumber">
-                         <label for="form2" class="">Nº tarjeta</label>
+                         <input type="number" id="cardNumber" class="form-control" v-model="cardNumber">
+                         <label for="cardNumber" class="">Nº tarjeta</label>
                      </div>
                      <div class="sub-form">
                          <div class="col-2">
                              <div class="md-form">
-                                 <input type="number" id="formmes" class="form-control">
-                                 <label for="formmes" class="">mm</label>
+                                 <input type="number" id="inputMes" class="form-control" v-model="month">
+                                 <label for="inputMes" class="">mm</label>
                              </div>
                          </div>
                          <div class="col-2">
                              <div class="md-form">
-                                 <input type="number" id="form4" class="form-control">
-                                 <label for="form4" class="">aaaa</label>
+                                 <input type="number" id="form4" class="form-control" v-model="year">
+                                 <label for="form4" class="">aa</label>
                              </div>
                          </div>
 
@@ -98,9 +103,7 @@
                          <input type="number" id="form7" class="form-control">
                          <label for="form7" class="">Código postal</label>
                      </div>
-
                  </div>
-
 
                  <button type="button" name="button" class="btn bg-verde summary-btn">Finalizar compra</button>
              </div>
@@ -113,29 +116,18 @@
      var app = new Vue({
          el: '#cart',
          data: {
-             message: 'Hello Vue!',
-             names: [{
-                     name: 'uno'
-                 },
-                 {
-                     name: 'dos'
-                 },
-                 {
-                     name: 'tres'
-                 }
-             ],
              name: "",
-             cardNumber: ""
+             cardNumber: "",
+             month: "",
+             year: ""
          },
          computed: {
              numberEmpty: function() {
-                 return this.cardNumber != "";
+                 return this.cardNumber == "";
              },
              cardNumberSeparated: function() {
                  if (!this.numberEmpty) {
-                     console.log(this.cardNumber.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3"));
-                     return this.cardNumber; //.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3");
-
+                     return this.cardNumber.replace(/(\d{4})(\d{4})(\d{4})(\d{4})/, "$1-$2-$3-$4");
                  } else {
                      return "";
                  }

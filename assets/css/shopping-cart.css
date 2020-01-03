@@ -82,7 +82,7 @@
   border-radius: 1rem; 
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: ;
   justify-content: space-around;
   padding: 2rem;
 }
@@ -92,6 +92,10 @@
 }
 .cc-dots:not(:first-child){
   margin-left: 0.4rem;
+}
+.cc-logo {
+  font-size: 1.8rem;
+  align-self: flex-end;
 }
 
 
