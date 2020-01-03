@@ -2,6 +2,9 @@
  if (!isset($_SESSION)){
    session_start();
  }
+ if (!isset($_SESSION["name"])){
+   header("location:login");
+ }
  $file = "assets/data-source/products.json";
  $conn = file_get_contents($file);
  $products = json_decode($conn, true);
@@ -32,9 +35,9 @@
               </div>
             </div>          
           </div>
-          <div class="row">
+          <div class="row mt-4">
             <div class="col-12">
-              <h5 class='mt-3'>Mis artículos deseados:</h5>
+              <h4 class='mt-3'>Mis artículos deseados:</h4>
             </div>
           </div>
           <div class="row">
