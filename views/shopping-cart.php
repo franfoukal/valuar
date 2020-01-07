@@ -2,7 +2,36 @@
     $file = "assets/data-source/cart.json";
     $conn = file_get_contents($file);
     $cart = json_decode($conn, true);
-    ?>
+
+    if($_POST){
+        $cc = [
+            "name" => $_POST["name"],
+            "number" => $_POST["number"],
+            "month" => $_POST["month"],
+            "year" => $_POST["year"],
+            "CVV" => $_POST["CVV"]
+        ];
+
+        $errors = validation($cc);
+        print_r($errors);
+    }
+
+    function validation($ccData){
+        $errors = [];
+        
+        foreach ($ccData as $key => $value) {
+            if(empty($_POST[$key])){
+                $errors[] = "El campo " . $key . " está vacío";
+                return $errors;
+            }
+        }
+
+        
+    }
+
+?>
+
+<!-- MAIN CONTENT -->
 
  <main class="main-content" id="cart">
      <div class="row p-0 m-0">
@@ -32,7 +61,7 @@
          <aside class="summary-section z-depth-1-half bg-crema col-12 col-md-4 col-lg-4">
 
              <div class="summary">
-                 <h5 class="summary-title">RESUMEN DE COMPRA</h5>
+                 <h5 class="summary-title">Método de pago</h5>
 
                  <div class="credit-card bg-noche crema">
                      <h5 class="cc-title">Credit card</h5>
@@ -64,13 +93,14 @@
                      
                  </div>
 
-                 <div class="summary-form">
+                 <form class="summary-form" action="cart" method="POST">
                      <div class="md-form">
-                         <input type="text" id="form1" class="form-control" v-model="name">
+                         <input type="text" id="form1" class="form-control" v-model="name" name="name">
                          <label for="form1" class="">Nombre en tarjeta</label>
                      </div>
+
                      <div class="md-form">
-                         <input type="number" id="cardNumber" class="form-control" v-model="cardNumber">
+                         <input type="number" id="cardNumber" class="form-control" v-model="cardNumber" name="number">
                          <label for="cardNumber" class="">Nº tarjeta</label>
                      </div>
                      <div class="sub-form">
@@ -103,9 +133,11 @@
                          <input type="number" id="form7" class="form-control">
                          <label for="form7" class="">Código postal</label>
                      </div>
-                 </div>
 
-                 <button type="button" name="button" class="btn bg-verde summary-btn">Finalizar compra</button>
+                     <button type="submit" name="button" class="btn bg-verde summary-btn">Finalizar compra</button>
+                    </form>
+
+
              </div>
      </div>
      </aside>

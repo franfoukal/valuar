@@ -12,8 +12,12 @@
 .cart-prod-img{
   order: 0;
 }
+.img-wrapper-cart{
+  padding-left: 0;
+}
 .prod-name{
   order: 1;
+  padding-left: 0;
 }
 .cart-delete{
   order: 2;
@@ -72,6 +76,7 @@
 }
 .summary-btn{
   align-self: stretch;
+  width: 100%;
 }
 
 /* TARJETA DE CREDITO */
@@ -82,7 +87,6 @@
   border-radius: 1rem; 
   display: flex;
   flex-direction: column;
-  flex-wrap: ;
   justify-content: space-around;
   padding: 2rem;
 }
