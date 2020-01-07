@@ -9,13 +9,10 @@
 <header class="<?= isHome($request) ? 'index' : '' ?>">
     <nav class="mb-1 navbar navbar-expand-md navbar-dark <?= isHome($request) ? 'transparent' : 'bg-noche' ?> home">
         <a class="navbar-brand" href="home"><img class="logo img-responsive" src="assets/img/valuar-logo23.svg" alt=""></a>
-        <?php if ($_SESSION): ?>
-
           <a type="button" class="btn bg-rojo cart" href="cart">
             <i class="fas fa-shopping-cart"></i>
             <span class="badge badge-light"><?=$cartCount?></span>
           </a>
-        <?php endif; ?>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
