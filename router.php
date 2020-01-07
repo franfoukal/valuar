@@ -58,6 +58,9 @@ function router($request)
         case '/valuar/FAQ':
             require __DIR__ . '/views/FAQ.php';
             break;
+        case '/valuar/profile':
+            require __DIR__ . '/views/profile.php';
+            break;
         case '/valuar/product-add':
             require __DIR__ . '/views/controllers/product-add.php';
             break;
@@ -73,15 +76,20 @@ function router($request)
         case '/valuar/forgottenPassword':
             require __DIR__ . '/views/forgottenPassword.php';
             break;
+        case '/valuar/logout':
+            require __DIR__ . '/views/logout.php';
+            break;
         default:
             http_response_code(404);
             require __DIR__ . '/views/404.php';
             break;
     }
-
-    switch($segments[2]){
+    
+    if (!empty($segments)) {
+      switch($segments[2]){
         case 'product':
 
+      }
     }
 }
 ?>

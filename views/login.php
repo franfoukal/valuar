@@ -1,6 +1,9 @@
 <?php
 
-  print_r($_COOKIE);
+  if ($_SESSION) {
+    header('Location: welcome');
+    exit();
+  }
 
   // Error counter.
   $errors=[];

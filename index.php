@@ -21,6 +21,7 @@ require 'router.php';
 
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/profile.css">
     <link rel="stylesheet" href="assets/css/product.css">
     <link rel="stylesheet" href="assets/css/list.css">
     <link rel="stylesheet" href="assets/css/shopping-cart.css">
