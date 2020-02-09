@@ -49,6 +49,22 @@ $router->get('/cart', function () {
     ViewReturn::setView("shopping-cart");
     include_once("views/template.php");
 });
+$router->get('/FAQ', function () {
+    ViewReturn::setView("FAQ");
+    include_once("views/template.php");
+});
+$router->get('/contact', function () {
+    ViewReturn::setView("contact");
+    include_once("views/template.php");
+});
+$router->get('/signup', function () {
+    ViewReturn::setView("signup");
+    include_once("views/template.php");
+});
+$router->get('/login', function () {
+    ViewReturn::setView("login");
+    include_once("views/template.php");
+});
 
 $router->get('/product-list', function(){
     ViewReturn::setView("product-list");
