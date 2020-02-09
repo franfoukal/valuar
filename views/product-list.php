@@ -1,11 +1,6 @@
 <?php
-    $file = "assets/data-source/products.json";
-    $conn = file_get_contents($file);
-    $products = json_decode($conn, true);
-    if ($_GET) {
-      // code...
-    $item = $_GET["item"];
-  }
+include_once("./backend/utils/cURL.php");
+    $products = json_decode(cURL::get('http://localhost:8888/valuar/v2/product'), true);
 ?>
 <!--Main-->
     <div class="container">

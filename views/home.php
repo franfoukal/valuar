@@ -1,7 +1,7 @@
 <?php
-    $file = "assets/data-source/products.json";
-    $conn = file_get_contents($file);
-    $products = json_decode($conn, true);
+    include_once("./backend/utils/cURL.php");
+    $products = json_decode(cURL::get('http://localhost:8888/valuar/v2/product'), true);
+    
 ?>
 
 <main class="">
@@ -67,8 +67,8 @@
 
     <section class="best-sellers container">
         <div class="row zoom-child">
-        <?php
-        /*
+            <?php
+            /*
         *   VER ESTO
         *   Para renderizar dinamicamente desde un JSON
         *   leer el archivo, almacenarlo en array, usar foreach que el
@@ -76,14 +76,14 @@
         *   (VER single-product.php)
         *   El $i es para cortar la renderizacion con x productos
         */
-        foreach ($products as $i => $product) {
-            if($i == 4){
-                break;
+            foreach ($products as $i => $product) {
+                if ($i == 4) {
+                    break;
+                }
+                require "components/single-product.php";
             }
-            require "components/single-product.php";
-        }
 
-        ?>
+            ?>
         </div>
 
     </section>
@@ -91,3 +91,4 @@
     <section class="complement"></section>
 
 </main>
+
