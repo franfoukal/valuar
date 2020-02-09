@@ -1,6 +1,8 @@
 <?php
 include_once("./backend/utils/cURL.php");
-    $products = json_decode(cURL::get('http://localhost:8888/valuar/v2/product'), true);
+    $response = json_decode(cURL::get('http://localhost:8888/valuar/v2/product/list/12/' . ViewReturn::getVars()['page']), true);
+    $products = $response['result'];
+    $pages = $response['pages'];
 ?>
 <!--Main-->
     <div class="container">
@@ -113,17 +115,16 @@ include_once("./backend/utils/cURL.php");
             <!--Lista de productos-->
             <div class="col-12 col-lg-10">
                 <div class="row">
-                    <?php for($i = 0; $i < 3; $i++){
+                    <?php 
                     foreach($products as $key => $product){
-                        if($key == 4){
-                        break;
-                        }
+          
                         require './views/components/single-product.php';
                     }
-                }?>
+                ?>
                 </div>
             </div>
         </div>
         <!--Paginación de abajo-->
-        <?php include './views/components/navigation.php'?>
+        
+        <?php require './views/components/navigation.php'?>
     </div>

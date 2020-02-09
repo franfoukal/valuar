@@ -4,7 +4,7 @@ session_start();
 <header id="header" :class="locationLog ? 'index' : ''">
     <nav class="mb-1 navbar navbar-expand-md navbar-dark transparent home" :class="locationLog ? 'transparent' : 'bg-noche'">
         <a class="navbar-brand" href="/valuar/home"><img class="logo img-responsive" src="/valuar/assets/img/valuar-logo23.svg" alt=""></a>
-        <a type="button" class="btn bg-rojo cart" href="cart">
+        <a type="button" class="btn bg-rojo cart" href="/valuar/cart">
             <i class="fas fa-shopping-cart"></i>
             <span class="badge badge-light">4</span>
         </a>
@@ -14,15 +14,15 @@ session_start();
         <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light" href="product-list">
+                    <a class="nav-link waves-effect waves-light" href="/valuar/product-list">
                         <i class="fas fa-ring"></i> Productos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light" href="FAQ">
+                    <a class="nav-link waves-effect waves-light" href="/valuar/FAQ">
                         <i class="fas fa-cogs"></i> F.A.Q.</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light" href="contact">
+                    <a class="nav-link waves-effect waves-light" href="/valuar/contact">
                         <i class="fas fa-envelope"></i> Contacto
                     </a>
                 </li>
@@ -32,21 +32,21 @@ session_start();
                             <i class="fas fa-user"></i> Perfil </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
                             <?php if (!$_SESSION) : ?>
-                                <a class="dropdown-item waves-effect waves-light" href="login">Log In</a>
+                                <a class="dropdown-item waves-effect waves-light" href="/valuar/login">Log In</a>
                             <?php endif; ?>
-                            <a class="dropdown-item waves-effect waves-light" href="profile">Mi cuenta</a>
-                            <a class="dropdown-item waves-effect waves-light" href="logout">Log out</a>
+                            <a class="dropdown-item waves-effect waves-light" href="/valuar/profile">Mi cuenta</a>
+                            <a class="dropdown-item waves-effect waves-light" href="/valuar/logout">Log out</a>
                         </div>
                     <?php endif; ?>
                     </li>
                     <?php if (!$_SESSION) : ?>
                         <li class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="signup">
+                            <a class="nav-link waves-effect waves-light" href="/valuar/signup">
                                 <i class="fas fa-user"></i> Registrate
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link waves-effect waves-light" href="login">
+                            <a class="nav-link waves-effect waves-light" href="/valuar/login">
                                 <i class="far fa-user"></i> Login
                             </a>
                         </li>
@@ -60,7 +60,7 @@ session_start();
         <div class="container">
             <h1 class="display-3 crema text-shadow">Hey! new season is here</h1>
             <p class="text-white">Nuevos aires, nuevas influencias, todo vertido en la nueva colección. Dedicada a los intrépidos, entrá a ver lo nuevo de esta experiencia conceptual.</p>
-            <p><a class="btn bg-verde waves-effect waves-light btn-lg mt-5" href="product-list" role="button">Descubrí más »</a></p>
+            <p><a class="btn bg-verde waves-effect waves-light btn-lg mt-5" href="/valuar/product-list" role="button">Descubrí más »</a></p>
         </div>
     </div>
 

@@ -80,6 +80,26 @@ class Product extends ObjectAbstract {
 
         );
     }
+
+    public function paginate($cant, $page=0){
+        $offset = $cant * $page;
+        $sql = "SELECT * FROM products LIMIT $cant OFFSET $offset";
+        $sql1 = "SELECT COUNT(*) as 'pages' FROM products";
+        $stmt = $this->connection->getConnection()->prepare($sql);
+        $stmt1 = $this->connection->getConnection()->prepare($sql1);
+        try {
+            $stmt->execute();
+            $stmt1->execute();
+            print json_encode([
+                "pages" => floor($stmt1->fetch(PDO::FETCH_COLUMN)/$cant),
+                "result" => $stmt->fetchAll(PDO::FETCH_ASSOC)
+            ]);
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+
+
 }
 
     

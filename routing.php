@@ -22,6 +22,11 @@ $router->all('/v2/product(?:/)?([0-9]+)?', function ($id = null) { //con la expr
     CRUDRouter::route(new Product(), $id); //la id que capta es la de la regex
 });
 
+$router->get('/v2/product/list/(?:/)?([0-9]+)?(?:/)?([0-9]+)?', function($cant, $page=0){
+    $product = new Product();
+    $product->paginate($cant, $page);
+});
+
 /*  ===================================
 *   RUTAS PARA DEMAS ACCIONES 
 *   
@@ -66,8 +71,8 @@ $router->get('/login', function () {
     include_once("views/template.php");
 });
 
-$router->get('/product-list', function(){
-    ViewReturn::setView("product-list");
+$router->get('/product-list(?:/)?([0-9]+)?', function($page=0){
+    ViewReturn::setView("product-list", ['page' => $page]);
     include_once("views/template.php");
 });
 
