@@ -1,5 +1,5 @@
 <?php
-    $basedir = "../../valuar";
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +36,7 @@
             include_once("./backend/core/ViewReturn.php");
             include_once(ViewReturn::getView());
 
-            require __DIR__ . '/footer.php'; 
+            require __DIR__ . '/footer.php';
         ?>
     </div>
 

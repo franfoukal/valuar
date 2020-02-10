@@ -76,10 +76,20 @@ $router->get('/product-list(?:/)?([0-9]+)?', function($page=0){
     include_once("views/template.php");
 });
 
+$router->post('/product/add-to-cart', function(){
+    $_SESSION['cart'][] = $_POST['cart'];
+    header("Location: /valuar/cart");
+});
+$router->get('/delete-cart', function () {
+    $_SESSION['cart']= [];
+    header("Location: /valuar/cart");
+});
+$router->get('/delete-cart-product/([0-9]+)', function ($id) {
+    array_splice($_SESSION['cart'], $id);
+    header("Location: /valuar/cart");
+});
 
 $router->add('/.*', function () {
-
-    // header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
     echo '<h1>404 - El sitio solicitado no existe</h1>';
     http_response_code(404);
 });

@@ -1,5 +1,6 @@
 <?php
 $product['photos'] = explode(',', $product['photos']);
+$encoded = json_encode($product);
 ?>
 
 <div class="col-12 col-md-4 col-lg-3 product">
@@ -25,9 +26,9 @@ $product['photos'] = explode(',', $product['photos']);
                 </div>
             </div>
             <div class="col-12">
-                <form action="product-add" method="post">
-                    <input name="product-id" type="hidden" value="<?= $product['id'] ?>">
-                    <button name="agregar" type="submit" class='btn bg-piel w-100 mx-auto'>Agregar al carrito</button>
+                <form action="/valuar/product/add-to-cart" method="post">
+                    <input name="cart" type="hidden" value= '<?=$encoded?>' >
+                    <button type="submit" class='btn bg-piel w-100 mx-auto'>Agregar al carrito</button>
                 </form>
             </div>
         </div>

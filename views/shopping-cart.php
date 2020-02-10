@@ -1,34 +1,12 @@
  <?php
-    $file = "assets/data-source/cart.json";
-    $conn = file_get_contents($file);
-    $cart = json_decode($conn, true);
-
-    if($_POST){
-        $cc = [
-            "name" => $_POST["name"],
-            "number" => $_POST["number"],
-            "month" => $_POST["month"],
-            "year" => $_POST["year"],
-            "CVV" => $_POST["CVV"]
-        ];
-
-        $errors = validation($cc);
-        print_r($errors);
+    function decode($r){
+        return json_decode($r,true);
     }
-
-    function validation($ccData){
-        $errors = [];
-        
-        foreach ($ccData as $key => $value) {
-            if(empty($_POST[$key])){
-                $errors[] = "El campo " . $key . " está vacío";
-                return $errors;
-            }
-        }
-
-        
+    if(isset($_SESSION['cart'])){
+        $cart = array_map('decode',$_SESSION['cart']);
+    } else {
+        $cart = [];
     }
-
 ?>
 
 <!-- MAIN CONTENT -->
@@ -47,13 +25,7 @@
                  </ul>
 
                  <h3 class="total-price">Total:
-                     <?php
-                        $resultado = 0;
-                        foreach ($cart as $key => $product) {
-                            $resultado += $product["price"] * $product["units"];
-                        }
-                        echo "$" . $resultado;
-                        ?>
+                    
                  </h3>
              </div>
          </section>
