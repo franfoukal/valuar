@@ -1,8 +1,8 @@
 <?php
 include_once("./backend/utils/cURL.php");
-$productView = json_decode(cURL::get('http://localhost:8888/valuar/v2/product/' . ViewReturn::getVars()['id']), true);
+$productView = json_decode(cURL::get('http://localhost/valuar/v2/product/' . ViewReturn::getVars()['id']), true);
 $productView['photos'] = explode(', ', $productView['photos']);
-$products = json_decode(cURL::get('http://localhost:8888/valuar/v2/product'), true);
+$products = json_decode(cURL::get('http://localhost/valuar/v2/product'), true);
 $basedir = "../../valuar";
 ?>
 

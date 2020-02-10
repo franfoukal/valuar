@@ -8,8 +8,8 @@ include_once("backend/core/ViewReturn.php");
 
 
 /*  ===================================
-*   RUTAS PARA LOS OBJETOS 
-*   Tienen CRUD incorporado 
+*   RUTAS PARA LOS OBJETOS
+*   Tienen CRUD incorporado
 *   ===================================
 */
 $router = new Router('/valuar'); //el directorio base /api/xxxx
@@ -28,8 +28,8 @@ $router->get('/v2/product/list/(?:/)?([0-9]+)?(?:/)?([0-9]+)?', function($cant, 
 });
 
 /*  ===================================
-*   RUTAS PARA DEMAS ACCIONES 
-*   
+*   RUTAS PARA DEMAS ACCIONES
+*
 *   ===================================
 */
 
@@ -70,7 +70,23 @@ $router->get('/login', function () {
     ViewReturn::setView("login");
     include_once("views/template.php");
 });
+$router->get('/logout', function () {
+    ViewReturn::setView("logout");
+    include_once("views/template.php");
+});
+$router->get('/welcome', function () {
+    ViewReturn::setView("welcome");
+    include_once("views/template.php");
+});
 
+$router->get('/table-test', function () {
+    ViewReturn::setView("table-test");
+    include_once("views/template.php");
+});
+$router->get('/addProduct', function () {
+    ViewReturn::setView("addProduct");
+    include_once("views/template.php");
+});
 $router->get('/product-list(?:/)?([0-9]+)?', function($page=0){
     ViewReturn::setView("product-list", ['page' => $page]);
     include_once("views/template.php");
@@ -93,6 +109,7 @@ $router->add('/.*', function () {
     echo '<h1>404 - El sitio solicitado no existe</h1>';
     http_response_code(404);
 });
+
 
 
 $router->route();

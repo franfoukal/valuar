@@ -1,6 +1,8 @@
 <?php
   if (!$_SESSION) {
     session_start();
+  }else {
+    header('location:home');
   }
 ?>
 
