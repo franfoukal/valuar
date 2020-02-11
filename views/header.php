@@ -2,7 +2,7 @@
 session_start();
 ?>
 <header id="header" :class="locationLog ? 'index' : ''">
-    <nav class="mb-1 navbar navbar-expand-md navbar-dark transparent home" :class="locationLog ? 'transparent' : 'bg-noche'">
+    <nav class=" navbar navbar-expand-md navbar-dark transparent home" :class="locationLog ? 'transparent' : 'bg-noche'">
         <a class="navbar-brand" href="/valuar/home"><img class="logo img-responsive" src="/valuar/assets/img/valuar-logo23.svg" alt=""></a>
         <a type="button" class="btn bg-rojo cart" href="/valuar/cart">
             <i class="fas fa-shopping-cart"></i>
@@ -16,10 +16,6 @@ session_start();
                 <li class="nav-item">
                     <a class="nav-link waves-effect waves-light" href="/valuar/product-list">
                         <i class="fas fa-ring"></i> Productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light" href="/valuar/FAQ">
-                        <i class="fas fa-cogs"></i> F.A.Q.</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link waves-effect waves-light" href="/valuar/contact">
@@ -56,17 +52,13 @@ session_start();
     </nav>
 
 
-    <div class="jumbotron animated fadeInDown slow" v-if="locationLog">
-        <div class="container">
-            <h1 class="display-3 crema text-shadow">Hey! new season is here</h1>
-            <p class="text-white">Nuevos aires, nuevas influencias, todo vertido en la nueva colección. Dedicada a los intrépidos, entrá a ver lo nuevo de esta experiencia conceptual.</p>
-            <p><a class="btn bg-verde waves-effect waves-light btn-lg mt-5" href="/valuar/product-list" role="button">Descubrí más »</a></p>
+    <div class="animated fadeInDown slow " v-if="locationLog">
+        <div class="container text-center">
+            <h1 class="display-4 crema mb-3">Hey! new season is here.</h1>
+            
+            <p><a class="btn bg-crema noche waves-effect waves-light mx-0 my-3 rounded" href="/valuar/product-list" role="button">Descubrí más »</a></p>
         </div>
     </div>
-
-    <a href="#services" class="" v-if="locationLog">
-        <i class="fas fa-angle-double-down arrow crema animated bounce"></i>
-    </a>
 </header>
 
 <script>

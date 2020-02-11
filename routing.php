@@ -70,6 +70,15 @@ $router->get('/login', function () {
     ViewReturn::setView("login");
     include_once("views/template.php");
 });
+$router->get('/profile', function () {
+    ViewReturn::getView("profile");
+    include_once("views/template.php");
+});
+
+$router->get('/product-manager', function() {
+    ViewReturn::getView("product-manager");
+    include_once('views/product-manager.php');
+});
 
 $router->get('/product-list(?:/)?([0-9]+)?', function($page=0){
     ViewReturn::setView("product-list", ['page' => $page]);

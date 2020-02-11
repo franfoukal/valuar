@@ -18,8 +18,17 @@
     <!-- VUE JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-    <link rel="stylesheet" href="/valuar/assets/css/styles.css">
+    <!-- Source Sans Pro Font-->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet"> 
+    
+    <!-- Open Sans Font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap" rel="stylesheet"> 
+    
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+
     <link rel="stylesheet" href="/valuar/assets/css/index.css">
+    <link rel="stylesheet" href="/valuar/assets/css/styles.css">
     <link rel="stylesheet" href="/valuar/assets/css/profile.css">
     <link rel="stylesheet" href="/valuar/assets/css/product.css">
     <link rel="stylesheet" href="/valuar/assets/css/list.css">

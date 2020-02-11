@@ -100,12 +100,12 @@
  <?php endforeach; ?>
 
 <!-- CONTENT -->
-<div class="jumbotron bg-image-collar z-depth-5" style="margin: 5vh 10vw">
-   <div class="row">
+<div class="jumbotron z-depth-5 bg-image-collar">
+   <div class="row mx-0 form-padding">
      <!-- Sign Up form -->
-       <form class="text-center bg-white border border-light p-5 mb-4 col-xl-6 offset-xl-3 col-lg-12 justify-content-center z-depth-1-half" method="post" enctype="multipart/form-data">
+       <form class="form-margin text-center rounded my-5 bg-crema border border-light p-5 col-xl-6 offset-lg-3 col-lg-6 justify-content-center z-depth-1-half" method="post" enctype="multipart/form-data">
 
-           <p class="h4 mb-4">Registrate</p>
+           <p class="h2 mb-4">Registrate</p>
 
            <div class="form-row">
             <div class="col">

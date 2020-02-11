@@ -3,7 +3,8 @@ header.index{
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+
+  height: 45vh!important;
 }
 .navbar.home{
   box-shadow: none;
@@ -12,6 +13,8 @@ header.index{
   width: 40%;
 }
 .jumbotron{
+  margin: 0;
+  padding: 0;
   background-color: transparent;
   box-shadow: none;
 }
@@ -44,10 +47,11 @@ header.index{
   padding: 2rem 2rem;
   border-radius: 2%;
 }
+/*
 .service:hover{
   background-color: rgba(72, 169, 166, 0.5);
   color: white;
-}
+}*/
 .service i{
   font-size: 6rem;
   padding-bottom: 1rem;
@@ -65,11 +69,11 @@ header.index{
   margin: 0.5rem 0rem;
 }
 .zoom:hover{
-  transform: scale(1.1);
+  transform: scale(1.02);
   transition: all 0.2s linear;
 }
 .zoom-child>*:hover{
-  transform: scale(1.1);
+  transform: scale(1);
   transition: all 0.2s linear;
 }
 .ctg-prompt{
@@ -89,15 +93,11 @@ header.index{
 .ctg-prompt.light{
   color: black;
 }
-.complement{
-  height: 20vh;
-}
+
 
 /* MAS VENDIDO */
 
-.best-sellers{
-  margin-bottom: 10vh;
-}
+
 
 
 
@@ -147,3 +147,10 @@ header.index{
     order: 3;
   }
 }
+@media screen and (max-width: 320px){
+  .display-4{
+    font-size: 2rem;
+  }
+}
+
+

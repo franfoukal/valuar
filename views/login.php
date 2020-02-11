@@ -65,12 +65,12 @@
    </div>
  <?php endforeach; ?>
 
-<div class="jumbotron bg-image-collar z-depth-5" style="margin: 5vh 10vw">
-   <div class="row">
+<div class="jumbotron bg-image-collar z-depth-5">
+   <div class="row mx-0 form-padding">
      <!-- Default form login -->
-       <form class="text-center bg-white border border-light p-5 mb-4 col-xl-6 offset-xl-3 col-lg-12 justify-content-center z-depth-1-half" method="POST">
+       <form class="text-center form-margin rounded bg-crema border border-light p-5 my-4 col-xl-6 offset-xl-3 col-lg-12 justify-content-center z-depth-1-half" method="POST">
 
-           <p class="h4 mb-4">Log In</p>
+           <p class="h2 mb-4">Iniciar sesión</p>
 
            <!-- Email -->
            <div class="md-form">
@@ -103,7 +103,7 @@
            </p>
            <!-- Register -->
            <p>¿No sos miembro?
-               <a href="signup">Registrate</a>
+               <a href="signup">Registrate acá</a>
            </p>
 
        </form>

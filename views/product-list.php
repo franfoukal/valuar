@@ -1,15 +1,18 @@
 <?php
 include_once("./backend/utils/cURL.php");
-    $response = json_decode(cURL::get('http://localhost:8888/valuar/v2/product/list/12/' . ViewReturn::getVars()['page']), true);
+    $response = json_decode(cURL::get('http://localhost/valuar/v2/product/list/12/' . ViewReturn::getVars()['page']), true);
     $products = $response['result'];
     $pages = $response['pages'];
+    $page = intval(ViewReturn::getVars()['page']);
+    
 ?>
 <!--Main-->
-    <div class="container">
+<div class="container-fluid bg-crema">
+    <div class="container bg-crema">
         <!--Banner-->
         <?php include './views/components/banner.php'?>
-    <div class="row categorias-row">
-        <div class="col-12 my-auto">
+    <div class="row categorias-row bg-crema">
+        <div class="col-12 my-auto bg-crema">
             <div class="bg-crema rounded mt-3">
                 <ul class='list-unstyled text-center'>
                     <li class='menu-li'>
@@ -49,7 +52,7 @@ include_once("./backend/utils/cURL.php");
         </div>
     </div>
         <!--Lista de productos & Menu Categorias-->
-        <div class="row main-row">
+        <div class="row main-row bg-crema">
             <!--Categorías de costado-->
             <nav class="col-lg-2 bg-crema rounded-lg categorias-side">
                 <ul class='list-unstyled my-2'>
@@ -127,4 +130,5 @@ include_once("./backend/utils/cURL.php");
         <!--Paginación de abajo-->
         
         <?php require './views/components/navigation.php'?>
+    </div>
     </div>
