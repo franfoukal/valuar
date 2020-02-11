@@ -37,6 +37,7 @@ class ComposerStaticInit3e57ae68342173f156bcefbaae932e0d
     );
 
     public static $classMap = array (
+        'Core\\Auth' => __DIR__ . '/../..' . '/core/Auth.php',
         'Firebase\\JWT\\BeforeValidException' => __DIR__ . '/..' . '/firebase/php-jwt/src/BeforeValidException.php',
         'Firebase\\JWT\\ExpiredException' => __DIR__ . '/..' . '/firebase/php-jwt/src/ExpiredException.php',
         'Firebase\\JWT\\JWT' => __DIR__ . '/..' . '/firebase/php-jwt/src/JWT.php',

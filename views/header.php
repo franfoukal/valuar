@@ -1,12 +1,10 @@
-<?php
-session_start();
-?>
+
 <header id="header" :class="locationLog ? 'index' : ''">
     <nav class=" navbar navbar-expand-md navbar-dark transparent home" :class="locationLog ? 'transparent' : 'bg-noche'">
         <a class="navbar-brand" href="/valuar/home"><img class="logo img-responsive" src="/valuar/assets/img/valuar-logo23.svg" alt=""></a>
         <a type="button" class="btn bg-rojo cart" href="/valuar/cart">
             <i class="fas fa-shopping-cart"></i>
-            <span class="badge badge-light">4</span>
+            <span class="badge badge-light"><?=isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0?></span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

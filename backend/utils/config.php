@@ -5,6 +5,7 @@ return (object) [
     'DB_DATABASE' => "APITest",
     'DB_USERNAME' => "admin",
     'DB_PASSWORD' => "02994403079",
+    'BASE_DIR' => "http://localhost"
 ];
 
 ?>

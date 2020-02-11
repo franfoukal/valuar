@@ -8,8 +8,8 @@ include_once("backend/core/ViewReturn.php");
 
 
 /*  ===================================
-*   RUTAS PARA LOS OBJETOS 
-*   Tienen CRUD incorporado 
+*   RUTAS PARA LOS OBJETOS
+*   Tienen CRUD incorporado
 *   ===================================
 */
 $router = new Router('/valuar'); //el directorio base /api/xxxx
@@ -28,8 +28,8 @@ $router->get('/v2/product/list/(?:/)?([0-9]+)?(?:/)?([0-9]+)?', function($cant, 
 });
 
 /*  ===================================
-*   RUTAS PARA DEMAS ACCIONES 
-*   
+*   RUTAS PARA DEMAS ACCIONES
+*
 *   ===================================
 */
 
@@ -70,14 +70,26 @@ $router->get('/login', function () {
     ViewReturn::setView("login");
     include_once("views/template.php");
 });
-$router->get('/profile', function () {
-    ViewReturn::getView("profile");
+$router->get('/logout', function () {
+    ViewReturn::setView("logout");
+    include_once("views/template.php");
+});
+$router->get('/welcome', function () {
+    ViewReturn::setView("welcome");
     include_once("views/template.php");
 });
 
-$router->get('/product-manager', function() {
-    ViewReturn::getView("product-manager");
-    include_once('views/product-manager.php');
+$router->get('/table-test(?:/)?([0-9]+)?', function ($page = 0) {
+    ViewReturn::setView("table-test", ['page' => $page]);
+    include_once("views/template.php");
+});
+$router->get('/addProduct', function () {
+    ViewReturn::setView("addProduct");
+    include_once("views/template.php");
+});
+$router->post('/edit-product', function () {
+    ViewReturn::setView("addProduct");
+    include_once("views/template.php");
 });
 
 $router->get('/product-list(?:/)?([0-9]+)?', function($page=0){
@@ -85,13 +97,21 @@ $router->get('/product-list(?:/)?([0-9]+)?', function($page=0){
     include_once("views/template.php");
 });
 
+$router->post('/product/add-to-cart', function(){
+    $_SESSION['cart'][] = $_POST['cart'];
+    header("Location: /valuar/cart");
+});
+
+$router->get('/delete-cart-product/([0-9]+)', function ($id) {
+    array_splice($_SESSION['cart'], $id);
+    header("Location: /valuar/cart");
+});
 
 $router->add('/.*', function () {
-
-    // header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
     echo '<h1>404 - El sitio solicitado no existe</h1>';
     http_response_code(404);
 });
+
 
 
 $router->route();

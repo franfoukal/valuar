@@ -1,7 +1,10 @@
 <?php
 
-session_start();
-session_destroy();
+if ($_SESSION) {
+  session_destroy();
+}else {
+  session_start();
+}
 
 header("location:home");
 

@@ -1,10 +1,10 @@
 <?php
-include_once("./backend/utils/cURL.php");
-    $response = json_decode(cURL::get('http://localhost/valuar/v2/product/list/12/' . ViewReturn::getVars()['page']), true);
+    include_once("./backend/utils/cURL.php");
+    $config = include_once("./backend/utils/config.php");
+    $response = json_decode(cURL::get($config->BASE_DIR.'/valuar/v2/product/list/12/' . ViewReturn::getVars()['page']), true);
     $products = $response['result'];
     $pages = $response['pages'];
     $page = intval(ViewReturn::getVars()['page']);
-    
 ?>
 <!--Main-->
 <div class="container-fluid bg-crema">
@@ -118,9 +118,9 @@ include_once("./backend/utils/cURL.php");
             <!--Lista de productos-->
             <div class="col-12 col-lg-10">
                 <div class="row">
-                    <?php 
+                    <?php
                     foreach($products as $key => $product){
-          
+
                         require './views/components/single-product.php';
                     }
                 ?>
@@ -128,7 +128,7 @@ include_once("./backend/utils/cURL.php");
             </div>
         </div>
         <!--Paginación de abajo-->
-        
+
         <?php require './views/components/navigation.php'?>
     </div>
     </div>
