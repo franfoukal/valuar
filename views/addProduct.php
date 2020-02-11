@@ -4,7 +4,6 @@ include_once("./backend/utils/cURL.php");
 // $config = include_once("./backend/utils/config.php");
 // $products = json_decode(cURL::get($config->BASE_DIR . '/valuar/v2/product'), true);
 
-
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $_POST['product'] = json_decode($_POST['product'], true);
     $method = 'PUT';
@@ -34,25 +33,25 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                     <!-- Name -->
                     <div class="md-form mt-3">
-                        <input type="text" id="name" class="form-control" value="<?= $_POST['product']['name'] ?>">
+                        <input type="text" id="name" class="form-control" value="<?= !empty($_POST['product']['name']) ? $_POST['product']['name'] : '' ?>">
                         <label for="name">Name</label>
                     </div>
 
                     <!--Description-->
                     <div class="md-form">
-                        <textarea id="description" class="form-control md-textarea" rows="3"><?= $_POST['product']['description'] ?></textarea>
+                        <textarea id="description" class="form-control md-textarea" rows="3"><?= !empty($_POST['product']['description']) ? $_POST['product']['description'] : '' ?></textarea>
                         <label for="description">Description</label>
                     </div>
 
                     <!-- PRICE -->
                     <div class="md-form">
-                        <input type="number" id="price" class="form-control" value="<?= $_POST['product']['price'] ?>">
+                        <input type="number" id="price" class="form-control" value="<?= !empty($_POST['product']['price']) ? $_POST['product']['price'] : '' ?>">
                         <label for="price">Precio $</label>
                     </div>
 
                     <!-- MATERIAL -->
                     <div class="md-form">
-                        <input type="text" id="material" class="form-control" value="<?= $_POST['product']['material'] ?>">
+                        <input type="text" id="material" class="form-control" value="<?= !empty($_POST['product']['material']) ? $_POST['product']['material'] : '' ?>">
                         <label for="material">Material</label>
                     </div>
 

@@ -58,12 +58,12 @@
   }
  ?>
 
- <?php foreach ($errors as $error): ?>
-   <!-- USER ALERTS -->
-   <div class="alert alert-danger mb-2 text-center" role="alert" style="width:50%;margin:auto">
-     <?php echo $error ?>
-   </div>
- <?php endforeach; ?>
+  <?php if (!empty($errors)): ?>
+    <!-- USER ALERTS -->
+    <div class="alert alert-danger mb-2 text-center" role="alert" style="width:50%;margin:auto">
+      <?php echo $error[0] ?>
+    </div>
+  <?php endif; ?>
 
 <div class="jumbotron bg-image-collar z-depth-5">
    <div class="row mx-0 form-padding">

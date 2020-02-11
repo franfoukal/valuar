@@ -92,12 +92,13 @@
   }
  ?>
 
- <?php foreach ($errors as $error): ?>
+ <?php if (!empty($errors)): ?>
    <!-- USER ALERTS -->
    <div class="alert alert-danger mb-2 text-center" role="alert" style="width:50%;margin:auto">
-     <?php echo $error ?>
+     <?php echo $error[0] ?>
    </div>
- <?php endforeach; ?>
+ <?php endif; ?>
+
 
 <!-- CONTENT -->
 <div class="jumbotron z-depth-5 bg-image-collar">
