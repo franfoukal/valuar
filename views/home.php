@@ -1,7 +1,7 @@
 <?php
     include_once("./backend/utils/cURL.php");
-    $products = json_decode(cURL::get('http://localhost:8888/valuar/v2/product'), true);
-    
+    $config = include_once("./backend/utils/config.php");
+    $products = json_decode(cURL::get($config->BASE_DIR.'/valuar/v2/product'), true);
 ?>
 
 <main class="">

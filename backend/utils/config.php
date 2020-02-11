@@ -4,7 +4,8 @@ return (object) [
     'DB_PORT' => "3306",
     'DB_DATABASE' => "APITest",
     'DB_USERNAME' => "root",
-    'DB_PASSWORD' => "",
+    'DB_PASSWORD' => "root",
+    'BASE_DIR' => "http://localhost:8888"
 ];
 
 ?>

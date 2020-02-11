@@ -1,9 +1,10 @@
 <?php
 include_once("./backend/utils/cURL.php");
-$productView = json_decode(cURL::get('http://localhost/valuar/v2/product/' . ViewReturn::getVars()['id']), true);
+$config = include_once("./backend/utils/config.php");
+$productView = json_decode(cURL::get($config->BASE_DIR . '/valuar/v2/product/' . ViewReturn::getVars()['id']), true);
 $productView['photos'] = explode(', ', $productView['photos']);
-$products = json_decode(cURL::get('http://localhost/valuar/v2/product'), true);
-$basedir = "../../valuar";
+$products = json_decode(cURL::get($config->BASE_DIR . '/valuar/v2/product'), true);
+$encoded = json_encode($productView);
 ?>
 
 <div class="container">
@@ -167,7 +168,10 @@ $basedir = "../../valuar";
               <button form="buy-form" formaction="product-buy" class='btn btn-block bg-verde'>Comprar ahora</button>
             </div>
             <div class="col-12 col-md-6 my-1">
-              <button form="buy-form" formaction="product-add" class='btn btn-block bg-piel'>añadir a carrito</button>
+              <form action="/valuar/product/add-to-cart" method="post">
+                <input name="cart" type="hidden" value='<?= $encoded ?>'>
+                <button type="submit" class='btn bg-piel w-100 mx-auto'>Agregar al carrito</button>
+              </form>
             </div>
           </div>
         </div>

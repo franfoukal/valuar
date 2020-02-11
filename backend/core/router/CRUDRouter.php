@@ -15,6 +15,9 @@
                     case 'POST':
                         $resource->create();
                         break;
+                    case 'PUT':
+                        $resource->update($param);
+                        break;
                 }
             }
 

@@ -9,7 +9,7 @@
                 <?php for($i = 0 ; $i <= $pages ; $i++): ?>
                     
                 <li class="page-item">
-                    <a class="page-link" href="<?='/valuar/product-list/' .$i?>"><?=$i?></a>
+                    <a class="page-link" href="<?=$link .$i?>"><?=$i?></a>
                 </li>
                 <?php endfor;?>
                 

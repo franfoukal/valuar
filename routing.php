@@ -79,14 +79,19 @@ $router->get('/welcome', function () {
     include_once("views/template.php");
 });
 
-$router->get('/table-test', function () {
-    ViewReturn::setView("table-test");
+$router->get('/table-test(?:/)?([0-9]+)?', function ($page = 0) {
+    ViewReturn::setView("table-test", ['page' => $page]);
     include_once("views/template.php");
 });
 $router->get('/addProduct', function () {
     ViewReturn::setView("addProduct");
     include_once("views/template.php");
 });
+$router->post('/edit-product', function () {
+    ViewReturn::setView("addProduct");
+    include_once("views/template.php");
+});
+
 $router->get('/product-list(?:/)?([0-9]+)?', function($page=0){
     ViewReturn::setView("product-list", ['page' => $page]);
     include_once("views/template.php");
@@ -96,10 +101,7 @@ $router->post('/product/add-to-cart', function(){
     $_SESSION['cart'][] = $_POST['cart'];
     header("Location: /valuar/cart");
 });
-$router->get('/delete-cart', function () {
-    $_SESSION['cart']= [];
-    header("Location: /valuar/cart");
-});
+
 $router->get('/delete-cart-product/([0-9]+)', function ($id) {
     array_splice($_SESSION['cart'], $id);
     header("Location: /valuar/cart");

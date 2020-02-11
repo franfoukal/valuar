@@ -1,8 +1,10 @@
 <?php
-include_once("./backend/utils/cURL.php");
-    $response = json_decode(cURL::get('http://localhost/valuar/v2/product/list/12/' . ViewReturn::getVars()['page']), true);
+    include_once("./backend/utils/cURL.php");
+    $config = include_once("./backend/utils/config.php");
+    $response = json_decode(cURL::get($config->BASE_DIR.'/valuar/v2/product/list/12/' . ViewReturn::getVars()['page']), true);
     $products = $response['result'];
     $pages = $response['pages'];
+    $link = '/valuar/product-list/';
 ?>
 <!--Main-->
     <div class="container">
