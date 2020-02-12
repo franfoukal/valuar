@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
 
                     <input type="hidden" name="stock" value="<?= !empty($product['stock']) ? $product['stock'] : 0 ?>">
-                    <input type="hidden" name="photos" value="<?= !empty($product['photos']) ? $product['photos'] : []?>">
+                    <input type="hidden" name="photos" value="<?= !empty($product['photos']) ? $product['photos'] : 'assets/img/products/prod-1.png, assets/img/products/prod-2.png, assets/img/products/prod-4.png'?>">
 
 
                     <!-- Sign up button -->
