@@ -33,9 +33,14 @@ $router->get('/v2/product/list/(?:/)?([0-9]+)?(?:/)?([0-9]+)?', function($cant, 
 *   ===================================
 */
 
-$router->post('/login', function () {
-    $user = new User();
-    $user->login();
+// $router->post('/login', function () {
+//     $user = new User(true);
+//     $user->login();
+
+// });
+$router->post('/signup', function () {
+    $user = new User(true);
+    $user->create();
 });
 
 $router->get('/', function(){
@@ -49,6 +54,14 @@ $router->get('/home', function () {
 $router->get('/product/([0-9]+)?', function ($id=null) {
     ViewReturn::setView("product", ['id' => $id]);
     include_once("views/template.php");
+});
+$router->post('/product/edit/([0-9]+)', function ($id) {
+    $product = new Product(true);
+    $product->update($id);
+});
+$router->post('/product/create', function () {
+    $product = new Product(true);
+    $product->create();
 });
 $router->get('/cart', function () {
     ViewReturn::setView("shopping-cart");
@@ -66,18 +79,29 @@ $router->get('/signup', function () {
     ViewReturn::setView("signup");
     include_once("views/template.php");
 });
-$router->get('/login', function () {
+$router->all('/login', function () {
     ViewReturn::setView("login");
     include_once("views/template.php");
 });
-$router->get('/logout', function () {
-    ViewReturn::setView("logout");
+$router->post('/authorize', function(){
+    $user = new User(true);
+    $user->login('/valuar/welcome');
+});
+$router->get('/profile', function(){
+    ViewReturn::setView("profile");
     include_once("views/template.php");
+});
+
+$router->get('/logout', function () {
+    setcookie('token', '', -1);
+    header('Location: /valuar/home');
 });
 $router->get('/welcome', function () {
     ViewReturn::setView("welcome");
     include_once("views/template.php");
 });
+
+
 
 $router->get('/table-test(?:/)?([0-9]+)?', function ($page = 0) {
     ViewReturn::setView("table-test", ['page' => $page]);
@@ -103,9 +127,11 @@ $router->post('/product/add-to-cart', function(){
 });
 
 $router->get('/delete-cart-product/([0-9]+)', function ($id) {
-    array_splice($_SESSION['cart'], $id);
+    array_splice($_SESSION['cart'], $id,1);
     header("Location: /valuar/cart");
 });
+
+
 
 $router->add('/.*', function () {
     echo '<h1>404 - El sitio solicitado no existe</h1>';

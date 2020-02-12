@@ -19,12 +19,12 @@
                         <i class="fas fa-envelope"></i> Contacto
                     </a>
                 </li>
-                <?php if ($_SESSION) : ?>
+                <?php if (isset($_COOKIE['token'])) : ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-user"></i> Perfil </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
-                            <?php if (!$_SESSION) : ?>
+                            <?php if (!isset($_COOKIE['token'])) : ?>
                                 <a class="dropdown-item waves-effect waves-light" href="/valuar/login">Log In</a>
                             <?php endif; ?>
                             <a class="dropdown-item waves-effect waves-light" href="/valuar/profile">Mi cuenta</a>
@@ -32,7 +32,7 @@
                         </div>
                     <?php endif; ?>
                     </li>
-                    <?php if (!$_SESSION) : ?>
+                    <?php if (!isset($_COOKIE['token'])) : ?>
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-light" href="/valuar/signup">
                                 <i class="fas fa-user"></i> Registrate

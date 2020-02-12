@@ -1,14 +1,12 @@
  <?php 
- if (!isset($_SESSION)){
-   session_start();
+  $config =include_once('./backend/utils/config.php');
+  include_once('./backend/utils/cURL.php');
+ if (!isset($_COOKIE["token"])){
+   header("location: /valuar/login");
  }
- if (!isset($_SESSION["name"])){
-   header("location:login");
- }
- $file = "assets/data-source/products.json";
- $conn = file_get_contents($file);
- $products = json_decode($conn, true);
 
+  $user = Auth::GetData($_COOKIE['token']);
+  $products = json_decode(cURL::get($config->BASE_DIR . '/valuar/v2/product'), true);
  ?>
  
  <!--Main-->
@@ -24,7 +22,7 @@
             </h1>
             </div>
             <div class="col-12 col-md-6 my-auto col-lg-8 profile-info">
-              <h2 class='my-0 noche'><?=$_SESSION["name"]?> <?=$_SESSION["surname"]?></h2>
+              <h2 class='my-0 noche'><?=$user->name?> <?=$user->lastname?></h2>
               <div class="my-3">
                 <p class='my-1'>
                   <i class="fas fa-map-marker-alt"></i>
@@ -32,7 +30,7 @@
                 </p>
                 <p>
                   <i class="fas fa-mobile-alt"></i>
-                  <a href="tel:<?=$_SESSION["phone"]?>"><?=$_SESSION["phone"]?></a>
+                  <a href="tel:<?=$_SESSION["phone"]?>"><?=12312312?></a>
                 </p>
               </div>
             </div>          

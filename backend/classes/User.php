@@ -22,8 +22,12 @@ class User extends ObjectAbstract{
      *  con statements preparados, se le pasa como parametro el nombre de la tabla
      *  
      */
-    public function __construct(){
-        $this->POST_INFO = json_decode(file_get_contents('php://input'), true);
+    public function __construct($form = false){
+        if($form){
+            $this->POST_INFO = $_POST;
+        }else {
+            $this->POST_INFO = json_decode(file_get_contents('php://input'), true);
+        }
         parent::__construct("users", $this->params());
     }
 
@@ -67,13 +71,13 @@ class User extends ObjectAbstract{
     }
 
     
-    public function login()
+    public function login($redirect = '')
     {
         
         $email = $this->POST_INFO["email"];
         $password = $this->POST_INFO["password"];
 
-        $query = "SELECT email, password FROM users WHERE email = :email";
+        $query = "SELECT * FROM users WHERE email = :email";
         $stmt =  $this->connection->getConnection()->prepare($query);
         $stmt->bindValue(":email", $email);
 
@@ -87,9 +91,8 @@ class User extends ObjectAbstract{
         if (password_verify($password, $response_body["password"])) {
             setcookie("token", Auth::SignIn($response_body), time() + 3600); //tiempo de la cookie
             if(isset($_COOKIE["token"]) && !empty($_COOKIE["token"])){
-                echo json_encode($_COOKIE);
-                print_r(Auth::GetData($_COOKIE["token"]));
                 http_response_code(200);
+                header("Location: " . $redirect);
             } else {
                 http_response_code(403);
             }

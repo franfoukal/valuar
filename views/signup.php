@@ -1,6 +1,6 @@
 <?php
 
-  if ($_SESSION) {
+  if (isset($_SESSION['token'])) {
     header('Location: welcome');
     exit();
   }
@@ -10,11 +10,11 @@
 
   // User data gather.
   $user=[
-    'name'=>!empty($_POST['name']) ? $_POST['name'] : '',
-    'surname'=>!empty($_POST['surname']) ? $_POST['surname'] : '',
+    'name'=>!empty($_POST['name']) ? $_POST['name'] : null,
+    'surname'=>!empty($_POST['surname']) ? $_POST['surname'] : null,
     'email'=>!empty($_POST['email']) ? $_POST['email'] : '',
-    'password'=>!empty($_POST['password']) ? $_POST['password'] : '',
-    'phone'=>!empty($_POST['phone']) ? $_POST['phone'] : '',
+    'password'=>!empty($_POST['password']) ? $_POST['password'] : null,
+    'phone'=>!empty($_POST['phone']) ? $_POST['phone'] : null,
   ];
   $passwordConfirm=!empty($_POST['passwordConfirm']) ? $_POST['passwordConfirm'] : '';
   $rememberMe=!empty($_POST['rememberMe']) ? $_POST['rememberMe'] : 'off';
@@ -104,7 +104,10 @@
 <div class="jumbotron z-depth-5 bg-image-collar">
    <div class="row mx-0 form-padding">
      <!-- Sign Up form -->
-       <form class="form-margin text-center rounded my-5 bg-crema border border-light p-5 col-xl-6 offset-lg-3 col-lg-6 justify-content-center z-depth-1-half" method="post" enctype="multipart/form-data">
+       <form class="form-margin text-center rounded my-5 bg-crema border border-light p-5 col-xl-6 offset-lg-3 col-lg-6 justify-content-center z-depth-1-half" 
+       method="post" 
+       enctype="multipart/form-data"
+       action="/valuar/signup">
 
            <p class="h2 mb-4">Registrate</p>
 

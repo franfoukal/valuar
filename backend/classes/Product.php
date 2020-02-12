@@ -22,8 +22,12 @@ class Product extends ObjectAbstract {
      *  con statements preparados, se le pasa como parametro el nombre de la tabla
      *  
      */
-    public function __construct(){
-        $this->POST_INFO = json_decode(file_get_contents('php://input'), true);
+    public function __construct($form=false){
+        if ($form) {
+            $this->POST_INFO = $_POST;
+        } else {
+            $this->POST_INFO = json_decode(file_get_contents('php://input'), true);
+        }
         parent::__construct("products", $this->params());
     }
 

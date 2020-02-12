@@ -165,7 +165,10 @@ $encoded = json_encode($productView);
           </div>
           <div class="row mt-2">
             <div class="col-12 col-md-6 mb-2">
-              <button form="buy-form" value=<?=$encoded?> formaction="/valuar/product/add-to-cart" class='btn btn-block rounded text-white bg-verde bd-verde'>añadir a carrito</button>
+              <form action="/valuar/product/add-to-cart" method="post">
+                <input name="cart" type="hidden" value='<?= $encoded ?>'>
+                <button name="agregar" type="submit" class='btn btn-block rounded text-white bg-verde bd-verde'>Añadir al carrito</button>
+              </form>
             </div>
             <div class="col-12 col-md-6 mb-2">
               <button form="buy-form" formaction="product-buy" class='btn btn-block rounded transparent bd-verde'>Comprar ahora</button>
@@ -175,17 +178,17 @@ $encoded = json_encode($productView);
       </div>
     </div>
   </div>
-      <div class="row">
-        <div class="col-12 mb-3">
-          <h4>También te puede interesar...</h4>
-        </div>
-        <?php foreach ($products as $i => $product) {
-          if ($i == 4) {
-            break;
-          }
-          require "components/single-product.php";
-        } ?>
-      </div>
+  <div class="row">
+    <div class="col-12 mb-3">
+      <h4>También te puede interesar...</h4>
     </div>
+    <?php foreach ($products as $i => $product) {
+      if ($i == 4) {
+        break;
+      }
+      require "components/single-product.php";
+    } ?>
+  </div>
+</div>
 </div>
 <script src='/valuar/assets/js/product.js'></script>

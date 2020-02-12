@@ -1,10 +1,11 @@
 <?php
+  include_once('./backend/utils/cURL.php');
+  $config =include_once('./backend/utils/config.php');
 
-  if ($_SESSION) {
-    header('Location: welcome');
-    exit();
-  }
-
+// if (isset($_SESSION['token'])) {
+//   header('Location: welcome');
+//   exit();
+// }
   // Error counter.
   $errors=[];
 
@@ -19,12 +20,12 @@
     $user['email']=!empty($_COOKIE['user'])?$_COOKIE['user']:'';
   }
 
-  if ($_POST) {
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-    // PASSWORD HASHING
-    $user['password']=password_hash($user['password'],PASSWORD_DEFAULT);
-    // USERS GET
-    $users=json_decode(file_get_contents("./assets/data-source/users.json"), true);
+    // // PASSWORD HASHING
+    // $user['password']=password_hash($user['password'],PASSWORD_DEFAULT);
+    // // USERS GET
+    // $users=json_decode(file_get_contents("./assets/data-source/users.json"), true);
 
     // Validations
     if (empty($_POST['email'])) {
@@ -38,49 +39,54 @@
       $errors[]='La contrasena esta vacia.';
     }
 
-    // CHECK USER EXISTANCE
-    foreach ($users as $key => $value) {
-      if ($_POST["email"] == $value["email"]) {
-        if (password_verify($_POST['password'],$value['password']) && empty($errors)) {
-          // SUCCESS !!!!
-          if ($rememberMe=='on') {
-            setcookie('user', $_POST['email'], time()+60);
-          }
-          session_start();
-          $_SESSION=$value;
-          header('Location: welcome');
-          exit();
-        }
-      }
-    }
+  // // CHECK USER EXISTANCE
+  // foreach ($users as $key => $value) {
+  //   if ($_POST["email"] == $value["email"]) {
+  //     if (password_verify($_POST['password'],$value['password']) && empty($errors)) {
+  //       // SUCCESS !!!!
+  //       if ($rememberMe=='on') {
+  //         setcookie('user', $_POST['email'], time()+60);
+  //       }
+  //       session_start();
+  //       $_SESSION=$value;
+  //       header('Location: welcome');
+  //       exit();
+  //     }
+  //   }
+  // }
     $errors[] = "El email no está registrado o la contrasena es incorrecta.";
     $user['email']='';
+
   }
+
+
  ?>
 
   <?php if (!empty($errors)): ?>
     <!-- USER ALERTS -->
     <div class="alert alert-danger mb-2 text-center" role="alert" style="width:50%;margin:auto">
-      <?php echo $error[0] ?>
+      <?php echo $errors[0] ?>
     </div>
   <?php endif; ?>
 
 <div class="jumbotron bg-image-collar z-depth-5">
    <div class="row mx-0 form-padding">
      <!-- Default form login -->
-       <form class="text-center form-margin rounded bg-crema border border-light p-5 my-4 col-xl-6 offset-xl-3 col-lg-12 justify-content-center z-depth-1-half" method="POST">
+       <form class="text-center form-margin rounded bg-crema border border-light p-5 my-4 col-xl-6 offset-xl-3 col-lg-12 justify-content-center z-depth-1-half" 
+              method="POST"
+              action="/valuar/authorize">
 
            <p class="h2 mb-4">Iniciar sesión</p>
 
            <!-- Email -->
            <div class="md-form">
-             <input type="email" id="email" class="form-control" name="email" value="<?=$user['email']?>">
+             <input type="email" id="email" class="form-control" name="email" value="<?=$user['email']?>" required>
              <label for="email">E-mail</label>
            </div>
 
            <!-- Password -->
            <div class="md-form">
-             <input type="password" id="password" class="form-control" name='password'>
+             <input type="password" id="password" class="form-control" name='password' required>
              <label for="password">Contraseña</label>
            </div>
 

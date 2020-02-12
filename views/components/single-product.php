@@ -37,7 +37,7 @@ $encoded = json_encode($product);
             </div>
             <div class="col-12">
                 <form action="/valuar/product/add-to-cart" method="post">
-                    <input name="product-id" type="hidden" value="<?= $encoded ?>">
+                    <input name="cart" type="hidden" value='<?= $encoded ?>'>
                     <button name="agregar" type="submit" class='btn bg-verde text-white w-100 mx-auto'>Añadir al carrito</button>
                 </form>
             </div>
