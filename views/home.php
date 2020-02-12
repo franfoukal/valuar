@@ -1,18 +1,19 @@
 <?php
-    include_once("./backend/utils/cURL.php");
-    $config = include_once("./backend/utils/config.php");
-    $products = json_decode(cURL::get($config->BASE_DIR.'/valuar/v2/product'), true);
-    
+include_once("./backend/utils/cURL.php");
+$config = include_once("./backend/utils/config.php");
+$products = json_decode(cURL::get($config->BASE_DIR . '/valuar/v2/product'), true);
+
 ?>
 
 <main class="bg-crema">
-<section class="best-sellers container-fluid">
-    <div class='container bg-crema'>
-    <h1 class=' noche py-4 bg-crema '>Opciones para esta temporada:</h1>
+    <section class="best-sellers container-fluid">
 
-        <div class="row zoom-child">
-            <?php
-            /*
+        <h3 class='py-4 noche text-center'>Descubrí lo nuevo, descubrí valuar</h3>
+        <div class='container bg-crema'>
+
+            <div class="row zoom-child">
+                <?php
+                /*
         *   VER ESTO
         *   Para renderizar dinamicamente desde un JSON
         *   leer el archivo, almacenarlo en array, usar foreach que el
@@ -20,24 +21,24 @@
         *   (VER single-product.php)
         *   El $i es para cortar la renderizacion con x productos
         */
-            foreach ($products as $i => $product) {
-                if ($i == 4) {
-                    break;
+                foreach ($products as $i => $product) {
+                    if ($i == 4) {
+                        break;
+                    }
+                    require "components/single-product.php";
                 }
-                require "components/single-product.php";
-            }
 
-            ?>
+                ?>
+            </div>
+            <div class="text-center">
+                <a class="btn transparent bd-noche noche waves-effect waves-light mx-0 my-4 rounded" href="/valuar/product-list" role="button">Descubrí más »</a>
+            </div>
         </div>
-        <div class="text-center">
-            <a class="btn transparent bd-noche noche waves-effect waves-light mx-0 my-4 rounded" href="/valuar/product-list" role="button">Descubrí más »</a>
-        </div>
-    </div>
     </section>
 
-    <section class="categories py-3 container-fluid bg-crema ">
+    <section class="categories py-4 container-fluid bg-noche ">
+        <h3 class='py-1 crema text-center'>Categorías</h3>
         <div class="container">
-        <h2 class=' h2 noche bg-crema pt-4 my-3'>Categorías:</h2>
 
             <div class="row">
 
@@ -79,8 +80,8 @@
             </div>
         </div>
     </section>
-    
-    <section class="services py-5 bg-crema" id="services">
+
+    <section class="services py-5 bg-white" id="services">
         <div class="svc-wrapper py-5 row mx-5">
             <div class="service noche col-12 col-md-4">
                 <i class="fas fa-shield-alt"></i>
@@ -98,11 +99,10 @@
                 <p>¡Enviamos a todo el país! Así de facíl hasta la puerta de tu casa. <a className="text-decoration-none" href="FAQ">Saber mas...</a></p>
             </div>
         </div>
-        <h2 class="title display-3 noche py-4 text-center">ELEGÍ VALUAR.</h2>
+        <h2 class="title display-3 noche py-4 text-center">ELEGÍ VALUAR</h2>
 
     </section>
-    
 
-    
+
+
 </main>
-

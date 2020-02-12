@@ -4,7 +4,10 @@ header.index{
   background-repeat: no-repeat;
   background-size: cover;
 
-  height: 45vh!important;
+  /* height: 45vh!important; */
+}
+.jumbotron{
+  margin-bottom: 0;
 }
 .navbar.home{
   box-shadow: none;
@@ -13,8 +16,8 @@ header.index{
   width: 40%;
 }
 .jumbotron{
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   background-color: transparent;
   box-shadow: none;
 }
@@ -113,7 +116,7 @@ header.index{
   header.index{
     background-position: 0;  
     height: 100vh;
-    max-height: 700px;
+    max-height: 80vh;
   }
   .navbar-brand{
     width: 15%;
@@ -126,7 +129,7 @@ header.index{
   header.index{
     background-position: 0;  
     height: 100vh;
-    max-height: 900px;
+    max-height: 80vh;
   }
   .navbar-brand{
     width: 15%;

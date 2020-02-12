@@ -1,10 +1,9 @@
-
-<header id="header" :class="locationLog ? 'index' : ''">
+<header id="header" class="z-depth-1-half" :class="locationLog ? 'index' : ''">
     <nav class=" navbar navbar-expand-md navbar-dark transparent home" :class="locationLog ? 'transparent' : 'bg-noche'">
         <a class="navbar-brand" href="/valuar/home"><img class="logo img-responsive" src="/valuar/assets/img/valuar-logo23.svg" alt=""></a>
         <a type="button" class="btn bg-rojo cart" href="/valuar/cart">
             <i class="fas fa-shopping-cart"></i>
-            <span class="badge badge-light"><?=isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0?></span>
+            <span class="badge badge-light"><?= isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0 ?></span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -50,20 +49,30 @@
     </nav>
 
 
-    <div class="animated fadeInDown slow " v-if="locationLog">
+    <!-- <div class="animated fadeInDown slow " v-if="locationLog">
         <div class="container text-center">
             <h1 class="display-4 crema mb-3">Hey! new season is here.</h1>
             
             <p><a class="btn bg-crema noche waves-effect waves-light mx-0 my-3 rounded" href="/valuar/product-list" role="button">Descubrí más »</a></p>
         </div>
+    </div> -->
+
+
+    <div class="jumbotron animated fadeInDown slow" v-if="locationLog">
+        <div class="container ">
+            <h1 class="display-3 crema text-shadow">Hey! new season is here</h1>
+            <p class="text-white">Nuevos aires, nuevas influencias, todo vertido en la nueva colección. Dedicada a los intrépidos, entrá a ver lo nuevo de esta experiencia conceptual.</p>
+            <p><a class="btn bg-verde waves-effect waves-light btn-lg mt-5 rounded text-white" href="/valuar/product-list" role="button">Descubrí más »</a></p>
+        </div>
     </div>
+
+
 </header>
 
 <script>
     var app = new Vue({
         el: '#header',
-        data: {
-        },
+        data: {},
         computed: {
             locationLog: function() {
                 return window.location.pathname == '/valuar/home' || window.location.pathname == '/valuar/';
